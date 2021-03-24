@@ -1,0 +1,22 @@
+<h1>Scientist Detail Page</h1>
+
+<h3> Name:      <%= @scientist.name %> </h3>
+<h3> Field of Study:        <%= @scientist.field_of_study %> </h3>
+
+
+<% @scientist.missions.each do |mission| %>
+<ul>
+<h3>Mission</h3>    
+<li><%=mission.name %></li><br>  
+<h3>Planets</h3>
+<li>Planet Name:<%=mission.planet.name%></li>
+<li>Distance from Earth:<%=mission.planet.distance_from_earth%></li>
+<li>Nearest Star:<%=mission.planet.nearest_star%></li>
+    <% end %>        
+<ul>
+<br>
+<%= button_to "Edit Scientist", edit_scientist_path, method: :get %>
+<%= button_to "Delete Scientist", scientist_path(@scientist), method: :delete %>
+<br>
+
+<%=button_to "Back to Scientist Index Page", scientists_path, method: :get%>
